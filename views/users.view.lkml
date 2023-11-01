@@ -25,10 +25,6 @@ view: users {
     timeframes: [raw, time, date, week, month, quarter, year]
     sql: ${TABLE}.created_at ;;
   }
-  dimension: year_created {
-    type: number
-    sql: ${created_year} ;;
-  }
 
   dimension: email {
     type: string
