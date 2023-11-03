@@ -12,6 +12,16 @@ view: orders {
     timeframes: [raw, time, date, week, month, quarter, year]
     sql: ${TABLE}.created_at ;;
   }
+
+  dimension_group: created_group_date {
+    label: "daily_log_date"
+    type: time
+    timeframes: [raw, time, date, week, month, quarter, year]
+    convert_tz: no
+    datatype: date
+    sql: ${TABLE}.created_at ;;
+  }
+
   dimension: year_created {
     type: number
     sql: ${created_year} ;;
