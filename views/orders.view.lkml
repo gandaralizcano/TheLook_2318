@@ -20,6 +20,7 @@ view: orders {
     convert_tz: no
     datatype: date
     sql: ${TABLE}.created_at ;;
+    drill_fields: [id]
   }
 
   dimension: year_created {
