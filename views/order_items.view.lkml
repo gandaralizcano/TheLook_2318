@@ -2,6 +2,32 @@ view: order_items {
   sql_table_name: demo_db.order_items ;;
   drill_fields: [id]
 
+  parameter: reporting_timeframe {
+    label: "Current Aggregation Period"
+    type: string
+    allowed_value: {
+      label: "Last 1 Day"
+      value: "1"
+    }
+    allowed_value: {
+      label: "Last 7 Days"
+      value: "7"
+    }
+    allowed_value: {
+      label: "Last 30 Days"
+      value: "30"
+    }
+    allowed_value: {
+      label: "Last 90 Days"
+      value: "90"
+    }
+    allowed_value: {
+      label: "Last year"
+      value: "365"
+    }
+    default_value: "365"
+  }
+
   dimension: id {
     primary_key: yes
     type: number
