@@ -2,6 +2,18 @@ view: orders {
   sql_table_name: demo_db.orders ;;
   drill_fields: [id]
 
+  parameter: test {
+    allowed_value: {
+      value: "sample_value_1"
+      label: "My Value from the Main view"
+    }
+
+    allowed_value: {
+      value: "sample_value_2"
+      label: "My Second Value from the Main view"
+    }
+  }
+
   dimension: id {
     primary_key: yes
     type: number
