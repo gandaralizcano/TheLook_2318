@@ -266,3 +266,7 @@ explore: xss_test_8 {}
 explore: xss_test_9 {}
 
 explore: testrefinement {}
+
+explore:  +testrefinement {
+    label: "refinement"
+  }
