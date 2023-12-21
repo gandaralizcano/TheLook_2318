@@ -7,10 +7,23 @@ view: users {
     type: number
     sql: ${TABLE}.id ;;
   }
+
   dimension: age {
     type: number
     sql: ${TABLE}.age ;;
   }
+  dimension: vertical_line_hour_dim {
+    type: string
+    # description: "String Bulk Start Time"
+
+    sql: {% parameter vertical_line_hour %};;
+
+  }
+  parameter: vertical_line_hour {
+    type: string
+  }
+
+
   dimension: city {
     type: string
     sql: ${TABLE}.city ;;
@@ -54,15 +67,7 @@ view: users {
     type: count
     drill_fields: [detail*]
   }
-  measure: yoy_takings_lfl_pct {
-    value_format: "0.0%;(0.0%)"
-    type: number
-    sql: CASE WHEN SUM(${id}) > 2 THEN ((SUM(${age}) - SUM(${id}))/SUM(${id})) ELSE NULL END ;;
-    html: {% if yoy_takings_lfl_pct._value >= 0 %}
-          <p>{{yoy_takings_lfl_pct._value|times:100|round:1}}%</p>
-          {% else %}
-          <p style = "color: #EA4335;">({{yoy_takings_lfl_pct._value|times:-100|round:1}}%)<p>
-          {% endif %};; }
+
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
