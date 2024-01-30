@@ -2,6 +2,7 @@ connection: "thelook"
 
 # include all the views
 include: "/views/**/*.view.lkml"
+include: "/fiscal_year.dashboard.lookml"
 fiscal_month_offset: 3
 
 datagroup: arturo_thelook_default_datagroup {
