@@ -7,10 +7,23 @@ view: users {
     type: number
     sql: ${TABLE}.id ;;
   }
+
   dimension: age {
     type: number
     sql: ${TABLE}.age ;;
   }
+  dimension: vertical_line_hour_dim {
+    type: string
+    # description: "String Bulk Start Time"
+
+    sql: {% parameter vertical_line_hour %};;
+
+  }
+  parameter: vertical_line_hour {
+    type: string
+  }
+
+
   dimension: city {
     type: string
     sql: ${TABLE}.city ;;
@@ -25,6 +38,7 @@ view: users {
     timeframes: [raw, time, date, week, month, quarter, year]
     sql: ${TABLE}.created_at ;;
   }
+
   dimension: email {
     type: string
     sql: ${TABLE}.email ;;
@@ -57,15 +71,15 @@ view: users {
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
-	id,
-	first_name,
-	last_name,
-	events.count,
-	orders.count,
-	saralooker.count,
-	sindhu.count,
-	user_data.count
-	]
+  id,
+  first_name,
+  last_name,
+  events.count,
+  orders.count,
+  saralooker.count,
+  sindhu.count,
+  user_data.count
+  ]
   }
 
 }

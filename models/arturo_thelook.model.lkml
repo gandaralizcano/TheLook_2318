@@ -117,6 +117,9 @@ explore: inventory_items {
 }
 
 explore: orders {
+  always_filter: {
+    filters: [ orders.created_date: "1 month"]
+  }
   join: users {
     type: left_outer
     sql_on: ${orders.user_id} = ${users.id} ;;
@@ -277,5 +280,3 @@ explore: xss_test_7 {}
 explore: derived {}
 
 explore: xss_test_8 {}
-
-explore: xss_test_9 {}
