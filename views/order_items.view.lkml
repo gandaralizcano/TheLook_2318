@@ -27,7 +27,7 @@ view: order_items {
   }
   dimension_group: returned {
     type: time
-    timeframes: [raw, time, date, week, month, quarter, year]
+    timeframes: [raw, time, date,fiscal_year, fiscal_month_num,week, month, quarter, year]
     sql: ${TABLE}.returned_at ;;
   }
   dimension: sale_price {
