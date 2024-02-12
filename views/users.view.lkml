@@ -7,10 +7,23 @@ view: users {
     type: number
     sql: ${TABLE}.id ;;
   }
+
   dimension: age {
     type: number
     sql: ${TABLE}.age ;;
   }
+  dimension: vertical_line_hour_dim {
+    type: string
+    # description: "String Bulk Start Time"
+
+    sql: {% parameter vertical_line_hour %};;
+
+  }
+  parameter: vertical_line_hour {
+    type: string
+  }
+
+
   dimension: city {
     type: string
     description: "The unique identifier used to identify groups who belong to a client. (Version: @{version_number})"

@@ -2,6 +2,8 @@ view: order_items {
   sql_table_name: demo_db.order_items ;;
   drill_fields: [id]
 
+
+
   dimension: id {
     primary_key: yes
     type: number
